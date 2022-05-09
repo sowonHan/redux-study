@@ -4,9 +4,16 @@ import React from "react";
 function TodoItem({ todo, onToggle, onRemove }) {
   return (
     <div>
-      <input type="checkbox" />
-      <span>예제 텍스트</span>
-      <button>삭제</button>
+      <input
+        type="checkbox"
+        onClick={() => onToggle(todo.id)}
+        checked={todo.done} // checked는 html input 태그의 속성 중 하나
+        readOnly={true} //readOnly도 html 속성. true를 하게 되면 읽기 전용이 된다
+      />
+      <span style={{ textDecoration: todo.done ? "line-through" : "none" }}>
+        {todo.text}
+      </span>
+      <button onClick={() => onRemove(todo.id)}>삭제</button>
     </div>
   );
 }
@@ -14,20 +21,28 @@ function TodoItem({ todo, onToggle, onRemove }) {
 function Todos({ input, todos, onChangeInput, onInsert, onToggle, onRemove }) {
   const onSubmit = (e) => {
     e.preventDefault();
+    onInsert(input); // 입력한 값 등록
+    onChangeInput(""); // 등록 후 인풋 초기화
   };
+
+  const onChange = (e) => onChangeInput(e.target.value);
 
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <input />
+        <input value={input} onChange={onChange} />
         <button type="submit">등록</button>
       </form>
       <div>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+        {/* map 돌리는 건 리듀서의 초기상태값 안의 todos */}
+        {todos.map((todo) => (
+          <TodoItem
+            todo={todo}
+            key={todo.id}
+            onToggle={onToggle}
+            onRemove={onRemove}
+          />
+        ))}
       </div>
     </div>
   );
