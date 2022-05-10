@@ -1,5 +1,6 @@
 import React from "react";
 import { createStore } from "redux";
+// https://redux.js.org/introduction/why-rtk-is-redux-today
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import ReactDOM from "react-dom/client";
