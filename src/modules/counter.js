@@ -35,4 +35,5 @@ export default counter;
 
 /* export와 export default의 차이점
 default를 붙이면 불러올 때 하나씩만 불러올 수 있고
-그냥 export는 {} 안에 여러 개를 한꺼번에 불러올 수 있다.*/
+그냥 export는 {} 안에 여러 개를 한꺼번에 불러올 수 있다.
+https://pinokio0702.tistory.com/370*/
