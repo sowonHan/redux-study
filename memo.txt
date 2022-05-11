@@ -3,6 +3,8 @@ redux 흐름은 이 페이지의 gif 참고
 
 dispatch-store는
 고객센터-본사(혹은 CS하청업체-본사, 민원 접수창구-해당 부서)라든가...택배사 대리점-물류창고 이런 식의 구조 개념으로 생각하면 대충 이해되는 듯
+https://redux.js.org/api/store#dispatch
+https://redux.js.org/tutorials/essentials/part-4-using-data#preparing-action-payloads
 
 
 - 프레젠테이셔널 컴포넌트 : 가시적인 부분. 콘테이너 컴포넌트로부터 props만 받아오고, redux store와는 직접적으로 접촉하지 않음 (여기서는 components 폴더에 들어가있음)
